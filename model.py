@@ -30,9 +30,11 @@ num_classes = [
     'Tomato___Tomato_mosaic_virus', 'Tomato___healthy'
 ]
 
+import os
 # Load trained model
+model_path = os.path.join(os.path.dirname(__file__), 'Models', 'plantDisease-resnet34.pth')
 model.load_state_dict(torch.load(
-    './Models/plantDisease-resnet34.pth', map_location=torch.device('cpu')
+    model_path, map_location=torch.device('cpu')
 ))
 model.eval()
 
